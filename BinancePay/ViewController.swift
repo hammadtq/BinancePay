@@ -17,6 +17,7 @@ class DealsTableViewCell: UITableViewCell {
     @IBOutlet weak var placeImage: UIImageView!
     @IBOutlet weak var placeLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
+    
 }
 
 class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
@@ -31,8 +32,10 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         tableView.dataSource = self
         tableView.delegate = self
         self.tableView.separatorStyle = .none
-        
+        tableView.rowHeight = 200
         fetchDeals(url: "http://zerobillion.com/binancepay/index.php");
+        
+        
         
         //testTransaction();
         //testBinance();
@@ -70,6 +73,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         let cell = tableView.dequeueReusableCell(withIdentifier: "resultsCellMain", for: indexPath) as! DealsTableViewCell
         var deals = dealsArray[indexPath.item]
         print(deals)
+        cell.selectionStyle = UITableViewCell.SelectionStyle.none
         cell.placeLabel.text = deals[0]
         cell.descriptionLabel.text = NSLocalizedString("\(deals[1])", comment: "")
         cell.placeLabel.sizeToFit()

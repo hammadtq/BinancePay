@@ -31,6 +31,7 @@ class ItemsTableViewController: UIViewController, UITableViewDataSource, UITable
         tableView.dataSource = self
         tableView.delegate = self
         self.tableView.separatorStyle = .none
+        tableView.rowHeight = 200
         print(peopleAddress)
         let addressToQuery = "http://zerobillion.com/binancepay/getItems.php?address=\(peopleAddress)"
         fetchItems(url: addressToQuery)
@@ -73,12 +74,13 @@ class ItemsTableViewController: UIViewController, UITableViewDataSource, UITable
         let cell = tableView.dequeueReusableCell(withIdentifier: "resultsCellItems", for: indexPath) as! ItemTableViewCell
         
         var items = itemsArray[indexPath.item]
+        cell.selectionStyle = UITableViewCell.SelectionStyle.none
         cell.itemTitle.text = items[0]
         cell.itemDescription.text = NSLocalizedString("\(items[1])", comment: "")
         cell.itemPrice.text = "\(items[3])"
         cell.itemTitle.sizeToFit()
         cell.itemDescription.sizeToFit()
-        cell.itemPrice.sizeToFit()
+        //cell.itemPrice.sizeToFit()
         cell.backgroundColor = UIColor(red:1.00, green:0.92, blue:0.65, alpha:1.0)
         Alamofire.request(items[2]).response { response in
             if let data = response.data {
