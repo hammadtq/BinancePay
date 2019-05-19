@@ -24,7 +24,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     let testnet = "https://testnet-explorer.binance.org/tx/"
     let binance = BinanceChain(endpoint: .testnet)
     var dealsArray = [[String]]()
-    
+    var dealAddress:String = ""
     @IBOutlet weak var tableView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,11 +32,11 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         tableView.delegate = self
         self.tableView.separatorStyle = .none
         
-        fetchDeals(url: "http://api.iologics.co.uk/binancepay/index.php");
+        fetchDeals(url: "http://zerobillion.com/binancepay/index.php");
         
         //testTransaction();
         //testBinance();
-        //testWallet();
+        getWallet();
         //testBroadcastControl();
         //testNodeRPC();
         //getTransactions();
@@ -54,6 +54,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
                         indiResult.append(result.1["place"].string ?? "");
                         indiResult.append(result.1["description"].string ?? "");
                         indiResult.append(result.1["image"].string ?? "");
+                        indiResult.append(result.1["address"].string ?? "");
                         self.dealsArray.append(indiResult);
                     }
                     self.tableView.reloadData()
@@ -85,6 +86,26 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         }
         return cell
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print(dealsArray[indexPath.item])
+        let deal = dealsArray[indexPath.item]
+        dealAddress = deal[3]
+        performSegue(withIdentifier: "goToItems", sender: self)
+        //navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?)
+    {
+        if segue.destination is ItemsTableViewController
+        {
+            let vc = segue.destination as? ItemsTableViewController
+            vc?.peopleAddress = dealAddress
+        }
+    }
+    
+    
+    //TEST FUNCTIONS FOR BINANCE CHAIN
     
     func getTransactions(){
         let binance = BinanceChain(endpoint: .testnet)
@@ -143,18 +164,18 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         }
     }
     
-    func testWallet(){
-        
+    func getWallet(){
+        let walletKey = UserDefaults.standard.string(forKey: "walletKey") ?? ""
         // Restore with a mnemonic phrase
-        let wallet = Wallet(mnemonic: "depth math nuclear wage board push system ugly movie retreat elephant valve coconut top super seek gasp rigid bitter network universe silly toast myth", endpoint: .testnet)
-        
+        let wallet = Wallet(mnemonic: walletKey, endpoint: .testnet)
+
         // Access keys
         print(wallet.privateKey)
         print(wallet.publicKey)
         print(wallet.mnemonic)
         print(wallet.account)
         print(wallet.address)
-        
+        UserDefaults.standard.set(wallet.account, forKey: "walletAddress")
         // Synchronise with the remote node before using the wallet
         wallet.synchronise() { (error) in
 

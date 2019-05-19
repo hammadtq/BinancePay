@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A34733472290F0DF00D7F8B0 /* ItemsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A34733462290F0DF00D7F8B0 /* ItemsTableViewController.swift */; };
 		A347334922910A5300D7F8B0 /* PaymentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A347334822910A5300D7F8B0 /* PaymentViewController.swift */; };
 		A347334B22912CED00D7F8B0 /* StartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A347334A22912CED00D7F8B0 /* StartViewController.swift */; };
 		A347334D2291344B00D7F8B0 /* WalletScanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A347334C2291344B00D7F8B0 /* WalletScanViewController.swift */; };

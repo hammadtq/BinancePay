@@ -17,12 +17,14 @@ class WalletViewController: UIViewController, UITableViewDataSource, UITableView
     var transactionsArray = [[String]]()
     @IBOutlet weak var tokenBalance: UILabel!
     @IBOutlet weak var tableView: UITableView!
-    
+    var walletAddress:String = ""
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.dataSource = self
         tableView.delegate = self
         self.tableView.separatorStyle = .none
+        walletAddress = UserDefaults.standard.string(forKey: "walletAddress") ?? ""
+        print(walletAddress)
         SVProgressHUD.show()
         getAccount()
         getTransactions()
@@ -33,7 +35,7 @@ class WalletViewController: UIViewController, UITableViewDataSource, UITableView
 //    }
     
     func getAccount(){
-        binance.account(address: "tbnb1yqyppmev2m4z96r4svwtjq8eqp653pt6elq33r") { (response) in
+        binance.account(address: walletAddress) { (response) in
             //print(response.account.balances)
             let balances = response.account.balances
             for balance in balances{
@@ -50,7 +52,7 @@ class WalletViewController: UIViewController, UITableViewDataSource, UITableView
     func getTransactions(){
         
         // Get transactions for an address
-        binance.transactions(address: "tbnb1yqyppmev2m4z96r4svwtjq8eqp653pt6elq33r") { (response) in
+        binance.transactions(address: walletAddress) { (response) in
             //print(response.transactions.tx)
             let transactionList = response.transactions.tx
             for transaction in transactionList{

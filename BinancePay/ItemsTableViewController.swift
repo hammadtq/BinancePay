@@ -8,6 +8,7 @@
 import UIKit
 import Alamofire
 import SwiftyJSON
+import SVProgressHUD
 
 class ItemTableViewCell: UITableViewCell{
     @IBOutlet weak var itemPrice: UILabel!
@@ -31,7 +32,7 @@ class ItemsTableViewController: UIViewController, UITableViewDataSource, UITable
         tableView.delegate = self
         self.tableView.separatorStyle = .none
         print(peopleAddress)
-        let addressToQuery = "http://api.iologics.co.uk/binancepay/getItems.php?address=\(peopleAddress)"
+        let addressToQuery = "http://zerobillion.com/binancepay/getItems.php?address=\(peopleAddress)"
         fetchItems(url: addressToQuery)
         
     }
@@ -74,9 +75,10 @@ class ItemsTableViewController: UIViewController, UITableViewDataSource, UITable
         var items = itemsArray[indexPath.item]
         cell.itemTitle.text = items[0]
         cell.itemDescription.text = NSLocalizedString("\(items[1])", comment: "")
-        cell.itemPrice.text = "$\(items[3])"
+        cell.itemPrice.text = "\(items[3])"
         cell.itemTitle.sizeToFit()
         cell.itemDescription.sizeToFit()
+        cell.itemPrice.sizeToFit()
         cell.backgroundColor = UIColor(red:1.00, green:0.92, blue:0.65, alpha:1.0)
         Alamofire.request(items[2]).response { response in
             if let data = response.data {
@@ -97,6 +99,7 @@ class ItemsTableViewController: UIViewController, UITableViewDataSource, UITable
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print(itemsArray[indexPath.item])
         itemArrayToPass = itemsArray[indexPath.item]
+        itemArrayToPass.append(peopleAddress)
         performSegue(withIdentifier: "goToPayment", sender: self)
         //navigationController?.pushViewController(vc, animated: true)
     }

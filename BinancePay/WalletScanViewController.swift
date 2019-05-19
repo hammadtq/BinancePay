@@ -88,7 +88,7 @@ class WalletScanViewController: UIViewController, AVCaptureMetadataOutputObjects
             found(code: stringValue)
         }
         
-        dismiss(animated: true)
+        //dismiss(animated: true)
     }
     
     func found(code: String) {

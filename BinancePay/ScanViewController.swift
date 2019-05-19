@@ -16,7 +16,7 @@ class ScanViewController: UIViewController, AVCaptureMetadataOutputObjectsDelega
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("hello")
+        print("hello its scan screen")
         view.backgroundColor = UIColor.black
         captureSession = AVCaptureSession()
         
@@ -79,6 +79,7 @@ class ScanViewController: UIViewController, AVCaptureMetadataOutputObjectsDelega
     }
     
     func metadataOutput(_ output: AVCaptureMetadataOutput, didOutput metadataObjects: [AVMetadataObject], from connection: AVCaptureConnection) {
+        print("captured")
         captureSession.stopRunning()
         
         if let metadataObject = metadataObjects.first {
@@ -88,7 +89,7 @@ class ScanViewController: UIViewController, AVCaptureMetadataOutputObjectsDelega
             found(code: stringValue)
         }
         
-        dismiss(animated: true)
+        //dismiss(animated: true)
     }
     
     func found(code: String) {
