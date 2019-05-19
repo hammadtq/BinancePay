@@ -7,6 +7,7 @@ target 'BinancePay' do
 
   # Pods for BinancePay
   pod 'BinanceChain', :git => 'https://github.com/mh7821/SwiftBinanceChain.git'
+  pod 'SVProgressHUD'
 
   target 'BinancePayTests' do
     inherit! :search_paths

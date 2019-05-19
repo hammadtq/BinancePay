@@ -9,6 +9,7 @@
 import UIKit
 import BinanceChain
 import SwiftyJSON
+import SVProgressHUD
 
 class WalletViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     let testnet = "https://testnet-explorer.binance.org/tx/"
@@ -22,8 +23,9 @@ class WalletViewController: UIViewController, UITableViewDataSource, UITableView
         tableView.dataSource = self
         tableView.delegate = self
         self.tableView.separatorStyle = .none
-        getAccount();
-        getTransactions();
+        SVProgressHUD.show()
+        getAccount()
+        getTransactions()
     }
     
 //    override var prefersStatusBarHidden: Bool {
@@ -60,6 +62,7 @@ class WalletViewController: UIViewController, UITableViewDataSource, UITableView
                     self.transactionsArray.append(transactionsDetail)
                 }
             }
+            SVProgressHUD.dismiss()
             self.tableView.reloadData()
             
         }
