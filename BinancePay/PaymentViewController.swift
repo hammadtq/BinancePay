@@ -30,10 +30,10 @@ class PaymentViewController: UIViewController {
     
     func fillDetails(){
         titleOfItem.text = itemArray[0]
-        itemPrice.text = itemArray[3]
-        itemDescription.text = itemArray[1]
-        titleOfItem.sizeToFit()
-        itemDescription.sizeToFit()
+        itemPrice.text = "\(itemArray[3]) BNB"
+        //itemDescription.text = itemArray[1]
+        //titleOfItem.sizeToFit()
+        //itemDescription.sizeToFit()
         addressToPay = itemArray[4]
         totalPrice = Double(itemArray[3])
         Alamofire.request(itemArray[2]).response { response in
