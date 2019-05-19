@@ -66,7 +66,7 @@
                     <navigationItem key="navigationItem" id="Sil-QC-fx5">
                         <barButtonItem key="leftBarButtonItem" title="Scan" image="scan" id="n6E-nI-thz">
                             <connections>
-                                <segue destination="gOc-8R-6E0" kind="show" id="bn8-TR-nuK"/>
+                                <segue destination="PMi-Mh-Mvy" kind="show" id="X7I-PG-piN"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -89,6 +89,9 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="j5r-Hx-Cya"/>
                     </view>
+                    <connections>
+                        <segue destination="gOc-8R-6E0" kind="show" identifier="goToResults" id="YL7-zI-8rm"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1KK-bl-HFP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -165,30 +168,53 @@
                     </tableView>
                     <connections>
                         <outlet property="tableView" destination="FAm-9x-eOO" id="76X-r8-KbH"/>
+                        <segue destination="Sms-YB-rEs" kind="show" identifier="goToPayment" id="6wN-v9-lu6"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2gM-Ud-KiZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3442" y="823"/>
         </scene>
-        <!--View Controller-->
+        <!--Payment View Controller-->
         <scene sceneID="Pfn-dE-ppl">
             <objects>
-                <viewController id="Sms-YB-rEs" sceneMemberID="viewController">
+                <viewController id="Sms-YB-rEs" customClass="PaymentViewController" customModule="BinancePay" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="pMU-za-dyJ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ajl-YR-5wv">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ajl-YR-5wv">
                                 <rect key="frame" x="0.0" y="64" width="375" height="510"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gJA-1e-HVb">
                                         <rect key="frame" x="67" y="34" width="240" height="128"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Yo-Ol-Szr">
-                                        <rect key="frame" x="166" y="198" width="45" height="21"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Item Description" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ldz-7e-a1M">
+                                        <rect key="frame" x="36" y="229" width="303" height="31"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Price Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2te-cc-na3">
+                                        <rect key="frame" x="67" y="291" width="240" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cat-5d-ZvH">
+                                        <rect key="frame" x="67" y="357" width="240" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" red="0.87450980389999999" green="0.90196078430000004" blue="0.91372549020000005" alpha="1" colorSpace="calibratedRGB"/>
+                                        <state key="normal" title="Pay"/>
+                                        <connections>
+                                            <action selector="payButtonPressed:" destination="Sms-YB-rEs" eventType="touchUpInside" id="DRQ-9U-LYP"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Item Title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Yo-Ol-Szr">
+                                        <rect key="frame" x="36" y="200" width="303" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -199,12 +225,24 @@
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Ajl-YR-5wv" firstAttribute="top" secondItem="CM5-Zc-KT4" secondAttribute="top" id="0il-0W-TZ9"/>
+                            <constraint firstItem="Ajl-YR-5wv" firstAttribute="leading" secondItem="pMU-za-dyJ" secondAttribute="leading" id="ANr-ou-f5x"/>
+                            <constraint firstAttribute="trailing" secondItem="Ajl-YR-5wv" secondAttribute="trailing" id="m9S-Hy-7VW"/>
+                            <constraint firstItem="Ajl-YR-5wv" firstAttribute="bottom" secondItem="CM5-Zc-KT4" secondAttribute="bottom" id="s5w-Cl-TEJ"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="CM5-Zc-KT4"/>
                     </view>
+                    <connections>
+                        <outlet property="itemDescription" destination="Ldz-7e-a1M" id="drt-IV-37R"/>
+                        <outlet property="itemImageView" destination="gJA-1e-HVb" id="LSC-pm-G51"/>
+                        <outlet property="itemPrice" destination="2te-cc-na3" id="Gu0-Fx-dyU"/>
+                        <outlet property="titleOfItem" destination="0Yo-Ol-Szr" id="dfK-4E-kz6"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bAw-PP-fdq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2511" y="815"/>
+            <point key="canvasLocation" x="4224.8000000000002" y="821.73913043478262"/>
         </scene>
         <!--Wallet-->
         <scene sceneID="KLi-KI-kPa">

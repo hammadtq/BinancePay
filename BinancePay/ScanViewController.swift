@@ -12,6 +12,7 @@ import UIKit
 class ScanViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
     var captureSession: AVCaptureSession!
     var previewLayer: AVCaptureVideoPreviewLayer!
+    var scannedCode:String = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -92,6 +93,7 @@ class ScanViewController: UIViewController, AVCaptureMetadataOutputObjectsDelega
     
     func found(code: String) {
         print(code)
+        self.scannedCode = code
         performSegue(withIdentifier: "goToResults", sender: self)
     }
     
@@ -101,5 +103,14 @@ class ScanViewController: UIViewController, AVCaptureMetadataOutputObjectsDelega
     
     override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
         return .portrait
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?)
+    {
+        if segue.destination is ItemsTableViewController
+        {
+            let vc = segue.destination as? ItemsTableViewController
+            vc?.peopleAddress = self.scannedCode
+        }
     }
 }

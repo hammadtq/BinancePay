@@ -10,29 +10,29 @@ import Alamofire
 import SwiftyJSON
 
 class ItemTableViewCell: UITableViewCell{
-    
-    
-    
     @IBOutlet weak var itemPrice: UILabel!
     @IBOutlet weak var itemTitle: UILabel!
     @IBOutlet weak var itemDescription: UILabel!
     @IBOutlet weak var itemImage: UIImageView!
+    
 }
 
 class ItemsTableViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return itemsArray.count
-    }
-    
     
     @IBOutlet var tableView: UITableView!
+    
+    var peopleAddress:String = ""
     var itemsArray = [[String]]()
+    var itemArrayToPass = [String]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.dataSource = self
         tableView.delegate = self
         self.tableView.separatorStyle = .none
-        fetchItems(url: "http://api.iologics.co.uk/binancepay/getItems.php?address=tbnb1mmehrux6snnuq6cq2gq4396m9lycwzy700l60a")
+        print(peopleAddress)
+        let addressToQuery = "http://api.iologics.co.uk/binancepay/getItems.php?address=\(peopleAddress)"
+        fetchItems(url: addressToQuery)
         
     }
     
@@ -56,9 +56,16 @@ class ItemsTableViewController: UIViewController, UITableViewDataSource, UITable
                 }
         }
     }
+    
+    func itemTapped(){
+        print("hello")
+    }
 
     // MARK: - Table view data source
 
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return itemsArray.count
+    }
     
 
    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -81,6 +88,26 @@ class ItemsTableViewController: UIViewController, UITableViewDataSource, UITable
             }
         }
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        print(itemsArray[indexPath.item])
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print(itemsArray[indexPath.item])
+        itemArrayToPass = itemsArray[indexPath.item]
+        performSegue(withIdentifier: "goToPayment", sender: self)
+        //navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?)
+    {
+        if segue.destination is PaymentViewController
+        {
+            let vc = segue.destination as? PaymentViewController
+            vc?.itemArray = itemArrayToPass
+        }
     }
     
 
