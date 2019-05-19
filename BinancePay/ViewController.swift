@@ -50,7 +50,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
                     
                     for result in resultJSON{
                         var indiResult = [String]()
-                        print(result.1["place"])
+                        //print(result.1["place"])
                         indiResult.append(result.1["place"].string ?? "");
                         indiResult.append(result.1["description"].string ?? "");
                         indiResult.append(result.1["image"].string ?? "");

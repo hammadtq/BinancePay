@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:/Users/hammadtariq/workspace/ethnewyork/BinancePay/BinancePay/ItemsTableViewController.swift">
+   </FileRef>
+   <FileRef
       location = "group:BinancePay.xcodeproj">
    </FileRef>
    <FileRef

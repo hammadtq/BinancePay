@@ -16,8 +16,6 @@
 		A3726AAD228F801E0032717B /* BinancePayUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3726AAC228F801E0032717B /* BinancePayUITests.swift */; };
 		A37BD5ED22908931006DB2F9 /* WalletViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A37BD5EC22908930006DB2F9 /* WalletViewController.swift */; };
 		A37BD5EF2290C7B0006DB2F9 /* ScanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A37BD5EE2290C7B0006DB2F9 /* ScanViewController.swift */; };
-		A37BD5F22290ED1C006DB2F9 /* ItemsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A37BD5F02290ED1C006DB2F9 /* ItemsViewController.swift */; };
-		A37BD5F32290ED1C006DB2F9 /* ItemsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A37BD5F12290ED1C006DB2F9 /* ItemsViewController.xib */; };
 		AB972384CAFDFAA983146BA5 /* Pods_BinancePay.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 60BBE8CBECF2E4170947183F /* Pods_BinancePay.framework */; };
 		B3FC6902FA4D506F751D8A07 /* Pods_BinancePayUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3745F0238B997EB8DA14EE7A /* Pods_BinancePayUITests.framework */; };
 		BAC4F7532D60545085890402 /* Pods_BinancePayTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8FB224EBB7FD4A599D201D17 /* Pods_BinancePayTests.framework */; };
@@ -47,6 +45,7 @@
 		8FB224EBB7FD4A599D201D17 /* Pods_BinancePayTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BinancePayTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		94F0ED9FC0AEF4A443525E5B /* Pods-BinancePayUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BinancePayUITests.release.xcconfig"; path = "Target Support Files/Pods-BinancePayUITests/Pods-BinancePayUITests.release.xcconfig"; sourceTree = "<group>"; };
 		9BD780BE652EBDD61F09ED29 /* Pods-BinancePay.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BinancePay.release.xcconfig"; path = "Target Support Files/Pods-BinancePay/Pods-BinancePay.release.xcconfig"; sourceTree = "<group>"; };
+		A34733462290F0DF00D7F8B0 /* ItemsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ItemsTableViewController.swift; path = /Users/hammadtariq/workspace/ethnewyork/BinancePay/BinancePay/ItemsTableViewController.swift; sourceTree = "<absolute>"; };
 		A3726A89228F801B0032717B /* BinancePay.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BinancePay.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A3726A8C228F801B0032717B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A3726A8E228F801B0032717B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -62,8 +61,6 @@
 		A3726AAE228F801E0032717B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A37BD5EC22908930006DB2F9 /* WalletViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletViewController.swift; sourceTree = "<group>"; };
 		A37BD5EE2290C7B0006DB2F9 /* ScanViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanViewController.swift; sourceTree = "<group>"; };
-		A37BD5F02290ED1C006DB2F9 /* ItemsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemsViewController.swift; sourceTree = "<group>"; };
-		A37BD5F12290ED1C006DB2F9 /* ItemsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ItemsViewController.xib; sourceTree = "<group>"; };
 		BC3C539C0464C99B4E0DFFBC /* Pods-BinancePayTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BinancePayTests.debug.xcconfig"; path = "Target Support Files/Pods-BinancePayTests/Pods-BinancePayTests.debug.xcconfig"; sourceTree = "<group>"; };
 		CDD96A7DE953A5819070C2C9 /* Pods-BinancePayTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BinancePayTests.release.xcconfig"; path = "Target Support Files/Pods-BinancePayTests/Pods-BinancePayTests.release.xcconfig"; sourceTree = "<group>"; };
 		DBAD8CF8654EE8B559C3720B /* Pods-BinancePayUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BinancePayUITests.debug.xcconfig"; path = "Target Support Files/Pods-BinancePayUITests/Pods-BinancePayUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -135,11 +132,10 @@
 		A3726A8B228F801B0032717B /* BinancePay */ = {
 			isa = PBXGroup;
 			children = (
+				A34733462290F0DF00D7F8B0 /* ItemsTableViewController.swift */,
 				A3726A8C228F801B0032717B /* AppDelegate.swift */,
 				A3726A8E228F801B0032717B /* ViewController.swift */,
 				A3726A90228F801B0032717B /* Main.storyboard */,
-				A37BD5F02290ED1C006DB2F9 /* ItemsViewController.swift */,
-				A37BD5F12290ED1C006DB2F9 /* ItemsViewController.xib */,
 				A37BD5EE2290C7B0006DB2F9 /* ScanViewController.swift */,
 				A3726A93228F801D0032717B /* Assets.xcassets */,
 				A3726A95228F801D0032717B /* LaunchScreen.storyboard */,
@@ -286,7 +282,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				A3726A97228F801D0032717B /* LaunchScreen.storyboard in Resources */,
-				A37BD5F32290ED1C006DB2F9 /* ItemsViewController.xib in Resources */,
 				A3726A94228F801D0032717B /* Assets.xcassets in Resources */,
 				A3726A92228F801B0032717B /* Main.storyboard in Resources */,
 			);
@@ -420,9 +415,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A37BD5F22290ED1C006DB2F9 /* ItemsViewController.swift in Sources */,
 				A3726A8F228F801B0032717B /* ViewController.swift in Sources */,
 				A3726A8D228F801B0032717B /* AppDelegate.swift in Sources */,
+				A34733472290F0DF00D7F8B0 /* ItemsTableViewController.swift in Sources */,
 				A37BD5ED22908931006DB2F9 /* WalletViewController.swift in Sources */,
 				A37BD5EF2290C7B0006DB2F9 /* ScanViewController.swift in Sources */,
 			);
