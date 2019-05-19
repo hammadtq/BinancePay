@@ -1,0 +1,6 @@
+framework module Pods_BinancePay {
+  umbrella header "Pods-BinancePay-umbrella.h"
+
+  export *
+  module * { export * }
+}
