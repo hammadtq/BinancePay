@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		A347334922910A5300D7F8B0 /* PaymentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A347334822910A5300D7F8B0 /* PaymentViewController.swift */; };
+		A347334B22912CED00D7F8B0 /* StartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A347334A22912CED00D7F8B0 /* StartViewController.swift */; };
+		A347334D2291344B00D7F8B0 /* WalletScanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A347334C2291344B00D7F8B0 /* WalletScanViewController.swift */; };
 		A3726A8D228F801B0032717B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3726A8C228F801B0032717B /* AppDelegate.swift */; };
 		A3726A8F228F801B0032717B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3726A8E228F801B0032717B /* ViewController.swift */; };
 		A3726A92228F801B0032717B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A3726A90228F801B0032717B /* Main.storyboard */; };
@@ -48,6 +50,8 @@
 		9BD780BE652EBDD61F09ED29 /* Pods-BinancePay.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BinancePay.release.xcconfig"; path = "Target Support Files/Pods-BinancePay/Pods-BinancePay.release.xcconfig"; sourceTree = "<group>"; };
 		A34733462290F0DF00D7F8B0 /* ItemsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ItemsTableViewController.swift; path = /Users/hammadtariq/workspace/ethnewyork/BinancePay/BinancePay/ItemsTableViewController.swift; sourceTree = "<absolute>"; };
 		A347334822910A5300D7F8B0 /* PaymentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentViewController.swift; sourceTree = "<group>"; };
+		A347334A22912CED00D7F8B0 /* StartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartViewController.swift; sourceTree = "<group>"; };
+		A347334C2291344B00D7F8B0 /* WalletScanViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletScanViewController.swift; sourceTree = "<group>"; };
 		A3726A89228F801B0032717B /* BinancePay.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BinancePay.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A3726A8C228F801B0032717B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A3726A8E228F801B0032717B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -139,11 +143,13 @@
 				A347334822910A5300D7F8B0 /* PaymentViewController.swift */,
 				A37BD5EC22908930006DB2F9 /* WalletViewController.swift */,
 				A37BD5EE2290C7B0006DB2F9 /* ScanViewController.swift */,
+				A347334A22912CED00D7F8B0 /* StartViewController.swift */,
 				A3726A8C228F801B0032717B /* AppDelegate.swift */,
 				A3726A90228F801B0032717B /* Main.storyboard */,
 				A3726A93228F801D0032717B /* Assets.xcassets */,
 				A3726A95228F801D0032717B /* LaunchScreen.storyboard */,
 				A3726A98228F801D0032717B /* Info.plist */,
+				A347334C2291344B00D7F8B0 /* WalletScanViewController.swift */,
 			);
 			path = BinancePay;
 			sourceTree = "<group>";
@@ -419,10 +425,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				A3726A8F228F801B0032717B /* ViewController.swift in Sources */,
+				A347334B22912CED00D7F8B0 /* StartViewController.swift in Sources */,
 				A347334922910A5300D7F8B0 /* PaymentViewController.swift in Sources */,
 				A3726A8D228F801B0032717B /* AppDelegate.swift in Sources */,
 				A34733472290F0DF00D7F8B0 /* ItemsTableViewController.swift in Sources */,
 				A37BD5ED22908931006DB2F9 /* WalletViewController.swift in Sources */,
+				A347334D2291344B00D7F8B0 /* WalletScanViewController.swift in Sources */,
 				A37BD5EF2290C7B0006DB2F9 /* ScanViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -82,4 +82,8 @@ class WalletViewController: UIViewController, UITableViewDataSource, UITableView
         UIApplication.shared.openURL(NSURL(string: "\(testnet)\(transactionsArray[indexPath.row][1])")! as URL)
     }
 
+    @IBAction func logOutPressed(_ sender: Any) {
+        UserDefaults.standard.set("", forKey: "walletKey")
+        self.view.window?.rootViewController?.dismiss(animated: true, completion: nil)
+    }
 }
